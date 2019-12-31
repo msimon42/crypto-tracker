@@ -15,7 +15,6 @@
       </tr>
     </thead>
     <tbody>
-
         <% @paginatable_assets.each do |asset| %>
           <tr>
             <td><img src="<%= asset['logo_url'] %>" class="align-self-start mr-3" style="width:25px"></td>
@@ -28,7 +27,6 @@
             <td><%= number_to_currency asset['high'] %></td>
           </tr>
         <% end %>
-
     </tbody>
   </table>
   <%= paginate @paginatable_assets %>
