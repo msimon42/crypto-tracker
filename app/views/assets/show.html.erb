@@ -1,1 +1,51 @@
-<h2><%= @asset['name'] %></h2>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>
+      <img src="<%= @asset['logo_url'] %>" style="width:150px"> <%= @asset['name'] %>
+    </h1>
+    <button class='btn btn-primary' data-toggle="collapse" data-target="#asset-info">Learn More</button>
+    <div id='asset-info' class='collapse'>
+      <p><%= @asset_metadata['description'] %></p>
+      <%= link_to 'Read the Whitepaper', @asset_metadata['whitepaper_url'], class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-4'>
+      <h3>External Info</h3>
+      <div class='list-group'>
+        <%= link_to 'Official Website', @asset_metadata['website_url'], class: 'list-group-item list-group-item-action' %>
+        <%= link_to 'Reddit', @asset_metadata['reddit_url'], class: 'list-group-item list-group-item-action' %>
+        <%= link_to 'Github', @asset_metadata['github_url'], class: 'list-group-item list-group-item-action' %>
+        <%= link_to 'Discord', @asset_metadata['discord_url'], class: 'list-group-item list-group-item-action' %>
+        <%= link_to 'Telegram', @asset_metadata['telegram_url'], class: 'list-group-item list-group-item-action' %>
+
+      </div>
+    </div>
+    <div class='col-sm-8'>
+      <table class='table table-striped'>
+        <thead>
+          <th>1d Price Change</th>
+          <th>7d Price Change</th>
+          <th>30d Price Change</th>
+          <th>1y Price Change</th>
+          <th>YTD Price Change</th>
+          <th>24hr Volume</th>
+          <th>ATH</th>
+          <th>ATH Date</th>
+        </thead>
+        <tbody>
+          <td><%= @asset['1d']['price_change'] %> (<%= @asset['1d']['price_change_pct'] %>)</td>
+          <td><%= @asset['7d']['price_change'] %> (<%= @asset['7d']['price_change_pct'] %>)</td>
+          <td><%= @asset['30d']['price_change'] %> (<%= @asset['30d']['price_change_pct'] %>)</td>
+          <td><%= @asset['365d']['price_change'] %> (<%= @asset['365d']['price_change_pct'] %>)</td>
+          <td><%= @asset['ytd']['price_change'] %> (<%= @asset['ytd']['price_change_pct'] %>)</td>
+          <td><%= @asset['1d']['volume'] %></td>
+          <td><%= @asset['high'] %></td>
+          <td><%= @asset['high_timestamp'] %></td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
