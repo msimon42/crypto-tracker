@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+assets = AssetApi.get_all
+assets.each do |asset|
+  Asset.create(symbol: asset['id'])
+end   
