@@ -1,13 +1,4 @@
 
-<% @assets.each do |asset| %>
-  <div class="media">
-    <img src="<%= asset['logo_url'] %>" class="align-self-start mr-3" style="width:60px">
-    <div class="media-body">
-      <h4><%= asset['name'] %></h4>
-      <p>Lorem ipsum...</p>
-    </div>
-  </div>
-<% end %>
 <div class="container">
   <h2>All Assets</h2>
   <table class="table table-striped">
@@ -24,13 +15,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <% @assets.each do |asset| %>
-          <td><img src="<%= asset['logo_url'] %>" class="align-self-start mr-3" style="width:15px"></td>
-          <td><%= asset['rank'] %></td>
-          
 
-      </tr>
+        <% @paginatable_assets.each do |asset| %>
+          <tr>
+            <td><img src="<%= asset['logo_url'] %>" class="align-self-start mr-3" style="width:25px"></td>
+            <td><%= asset['rank'] %></td>
+            <td><%= link_to asset['name'], "/assets/asset?name=#{asset['currency']}" %></td>
+            <td><%= number_to_currency asset['price'] %></td>
+            <td><%= number_with_delimiter asset['circulating_supply'] %></td>
+            <td><%= number_with_delimiter asset['max_supply'] %></td>
+            <td><%= number_to_currency asset['market_cap'] %></td>
+            <td><%= number_to_currency asset['high'] %></td>
+          </tr>
+        <% end %>
+
     </tbody>
   </table>
+  <%= paginate @paginatable_assets %>
 </div>
