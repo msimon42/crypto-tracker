@@ -24,6 +24,7 @@
       </div>
     </div>
     <div class='col-sm-8'>
+      <h3>Price Data</h3>
       <table class='table table-striped'>
         <thead>
           <th>1d Price Change</th>
@@ -36,13 +37,13 @@
           <th>ATH Date</th>
         </thead>
         <tbody>
-          <td><%= @asset['1d']['price_change'] %> (<%= @asset['1d']['price_change_pct'] %>)</td>
-          <td><%= @asset['7d']['price_change'] %> (<%= @asset['7d']['price_change_pct'] %>)</td>
-          <td><%= @asset['30d']['price_change'] %> (<%= @asset['30d']['price_change_pct'] %>)</td>
-          <td><%= @asset['365d']['price_change'] %> (<%= @asset['365d']['price_change_pct'] %>)</td>
-          <td><%= @asset['ytd']['price_change'] %> (<%= @asset['ytd']['price_change_pct'] %>)</td>
-          <td><%= @asset['1d']['volume'] %></td>
-          <td><%= @asset['high'] %></td>
+          <td><%= number_to_currency @asset['1d']['price_change'] %> (<%= number_to_percentage (@asset['1d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset['7d']['price_change'] %> (<%= number_to_percentage (@asset['7d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset['30d']['price_change'] %> (<%= number_to_percentage (@asset['30d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset['365d']['price_change'] %> (<%= number_to_percentage (@asset['365d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset['ytd']['price_change'] %> (<%= number_to_percentage (@asset['ytd']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_with_delimiter @asset['1d']['volume'] %></td>
+          <td><%= number_with_delimiter @asset['high'] %></td>
           <td><%= @asset['high_timestamp'] %></td>
         </tbody>
       </table>
