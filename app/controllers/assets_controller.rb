@@ -6,5 +6,6 @@ class AssetsController < ApplicationController
 
   def show
     @asset = AssetApi.get(params[:name]).first
+    @asset_metadata = AssetApi.get_metadata(params[:name]).first
   end
 end
