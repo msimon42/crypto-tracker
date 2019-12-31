@@ -64,3 +64,6 @@ gem 'jquery-rails'
 #factory
 gem 'factory_bot_rails'
 gem 'faker'
+
+#pagination
+gem 'kaminari'
