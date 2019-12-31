@@ -1,0 +1,36 @@
+
+<% @assets.each do |asset| %>
+  <div class="media">
+    <img src="<%= asset['logo_url'] %>" class="align-self-start mr-3" style="width:60px">
+    <div class="media-body">
+      <h4><%= asset['name'] %></h4>
+      <p>Lorem ipsum...</p>
+    </div>
+  </div>
+<% end %>
+<div class="container">
+  <h2>All Assets</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Circulating Supply</th>
+        <th>Max Supply</th>
+        <th>Market Cap.</th>
+        <th>ATH</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @assets.each do |asset| %>
+          <td><img src="<%= asset['logo_url'] %>" class="align-self-start mr-3" style="width:15px"></td>
+          <td><%= asset['rank'] %></td>
+          
+
+      </tr>
+    </tbody>
+  </table>
+</div>
