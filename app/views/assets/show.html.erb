@@ -2,6 +2,15 @@
   <div class="container">
     <h1>
       <img src="<%= @asset['logo_url'] %>" style="width:150px"> <%= @asset['name'] %>
+      <span id='show-price'><%= number_to_currency @asset['price'] %></span>
+      <span>
+        <% if @asset['1d']['price_change'].to_f >= 0 %>
+          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Green_Arrow_Up_Darker.svg/240px-Green_Arrow_Up_Darker.svg.png'alt='green_arrow' style='width:15px'>
+        <% else %>
+          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Red_Arrow_Down.svg/240px-Red_Arrow_Down.svg.png'alt='red_arrow'style='width:15px'>
+        <% end %>
+      </span>
+
     </h1>
     <button class='btn btn-primary' data-toggle="collapse" data-target="#asset-info">Learn More</button>
     <div id='asset-info' class='collapse'>
