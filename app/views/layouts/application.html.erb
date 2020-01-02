@@ -17,12 +17,21 @@
         <li class="nav-item">
           <a class="nav-link" href="/assets">All Assets</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Saved Assets</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link 3</a>
-        </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <a class="nav-link" href="/myassets">My Assets</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log Out', '/logout', method: :delete, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Log In</a>
+          </li>
+        <% end %>  
       </ul>
     </nav>
       <% flash.each do |name, msg| %>
