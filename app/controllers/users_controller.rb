@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if new_user.save
       flash[:success] = "Welcome, #{new_user.username}!"
       session[:user_id] = new_user.id
-      redirect_to '/dashboard'
+      redirect_to '/assets'
     else
       flash[:danger] = new_user.errors.full_messages.to_sentence
       render :new
