@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   has_secure_password
   enum role: ['regular', 'admin']
+
+  def has_asset?(symb)
+    assets.any? {|asset| a.symbol == sym}
+  end
 end
