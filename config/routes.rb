@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'home#home'
+
   resources :assets
 
   get '/register', to: 'users#new'
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
 
   get '/login', to: 'sessions#new'
+  get '/myassets', to: 'sessions#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get 'myassets/add', to: 'user_assets#new'
 end
