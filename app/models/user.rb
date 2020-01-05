@@ -10,6 +10,10 @@ class User < ApplicationRecord
   enum role: ['regular', 'admin']
 
   def has_asset?(symb)
-    assets.any? {|asset| a.symbol == sym}
+    assets.any? {|a| a.symbol == symb}
   end
+
+  def asset_symbols
+    assets.all.pluck(:symbol)
+  end   
 end
