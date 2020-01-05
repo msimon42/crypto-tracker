@@ -5,7 +5,11 @@
       <tr>
         <td><img src='<%=asset['logo_url'] %>' style='width:25px'></td>
         <td><%= link_to asset['name'], "/assets/asset?name=#{asset['currency']}" %></td>
-        <td><%= button_to 'Add', "/myassets?symbol=#{asset['symbol']}", class: 'btn btn-success' %></td>
+        <% if current_user.has_asset?(asset['currency']) %>
+          <td>Added!</td>
+        <% else %>
+          <td><%= button_to 'Add', "/myassets?symbol=#{asset['symbol']}", class: 'btn btn-success' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
