@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
 
   get '/login', to: 'sessions#new'
-  get '/myassets', to: 'sessions#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/myassets', to: 'user_assets#show'
   get 'myassets/add', to: 'user_assets#new'
   post '/myassets', to: 'user_assets#create'
 end
