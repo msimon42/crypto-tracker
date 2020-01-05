@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200105011504) do
+ActiveRecord::Schema.define(version: 20200105050333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20200105011504) do
   create_table "user_assets", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "asset_id"
-    t.float "amount"
+    t.float "amount", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "cost_basis", default: 0.0
     t.index ["asset_id"], name: "index_user_assets_on_asset_id"
     t.index ["user_id"], name: "index_user_assets_on_user_id"
   end
