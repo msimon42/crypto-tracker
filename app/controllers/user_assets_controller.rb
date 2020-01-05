@@ -10,4 +10,9 @@ class UserAssetsController < ApplicationController
     redirect_back fallback_location: '/myassets'
     flash[:success] = "#{asset.name} added."
   end
+
+  def show
+    @user = User.find(current_user.id)
+  end
+
 end

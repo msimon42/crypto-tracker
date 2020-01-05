@@ -12,10 +12,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(current_user.id)
-  end
-
   def destroy
     session[:user_id] = nil
     redirect_to '/assets'
