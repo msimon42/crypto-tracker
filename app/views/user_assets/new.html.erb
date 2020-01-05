@@ -1,1 +1,12 @@
 <h1>Results</h1>
+<table class='table table-borderless'>
+  <tbody>
+    <% @assets.each do |asset| %>
+      <tr>
+        <td><img src='<%=asset['logo_url'] %>' style='width:25px'></td>
+        <td><%= link_to asset['name'], "/assets/asset?name=#{asset['currency']}" %></td>
+        <td><%= button_to 'Add', "/myassets?symbol=#{asset['symbol']}", class: 'btn btn-success' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
