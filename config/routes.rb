@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get 'myassets/add', to: 'user_assets#new'
+  post '/myassets', to: 'user_assets#create'
 end
