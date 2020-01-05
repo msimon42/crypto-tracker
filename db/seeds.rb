@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Asset.destroy_all
 assets = AssetApi.get_all
 assets.each do |asset|
-  Asset.create(symbol: asset['id'])
-end   
+  Asset.create(symbol: asset['id'], name: asset['name'].upcase)
+end
