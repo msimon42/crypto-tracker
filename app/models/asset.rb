@@ -6,23 +6,16 @@ class Asset < ApplicationRecord
     where('name LIKE ?', "%#{query.upcase}%").pluck(:symbol)
   end
 
-  def price
+  def attributes
+    data = AssetApi.get(self.symbol).first
+
+    {
+      price: data['price'],
+      circulating_supply: data['circulating_supply'],
+      max_supply: data['max_supply'],
+      market_cap: data['market_cap'],
+      ath: data['high']
+    }
 
   end
-
-  def circulating_supply
-
-  end
-
-  def max_supply
-
-  end
-
-  def market_cap
-
-  end
-
-  def ath
-
-  end           
 end
