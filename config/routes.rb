@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/myassets', to: 'user_assets#show'
+  get '/myassets', to: 'user_assets#index'
   get 'myassets/add', to: 'user_assets#new'
   post '/myassets', to: 'user_assets#create'
 end

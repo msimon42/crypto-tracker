@@ -11,7 +11,7 @@ class UserAssetsController < ApplicationController
     flash[:success] = "#{asset.name} added."
   end
 
-  def show
+  def index
     @user = User.find(current_user.id)
   end
 
