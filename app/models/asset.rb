@@ -14,8 +14,13 @@ class Asset < ApplicationRecord
       circulating_supply: data['circulating_supply'],
       max_supply: data['max_supply'],
       market_cap: data['market_cap'],
-      ath: data['high']
+      ath: data['high'],
+      logo: data['logo_url']
     }
 
   end
+
+  def user_amt
+
+  end   
 end
