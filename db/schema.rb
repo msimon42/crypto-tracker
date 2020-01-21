@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200105050333) do
+ActiveRecord::Schema.define(version: 20200120214003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,21 @@ ActiveRecord::Schema.define(version: 20200105050333) do
     t.string "name"
   end
 
+  create_table "trades", force: :cascade do |t|
+    t.float "amount"
+    t.integer "transaction_type"
+    t.float "price_per_coin"
+    t.bigint "user_asset_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_asset_id"], name: "index_trades_on_user_asset_id"
+  end
+
   create_table "user_assets", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "asset_id"
-    t.float "amount", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "cost_basis", default: 0.0
     t.index ["asset_id"], name: "index_user_assets_on_asset_id"
     t.index ["user_id"], name: "index_user_assets_on_user_id"
   end
@@ -42,6 +50,7 @@ ActiveRecord::Schema.define(version: 20200105050333) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "trades", "user_assets"
   add_foreign_key "user_assets", "assets"
   add_foreign_key "user_assets", "users"
 end

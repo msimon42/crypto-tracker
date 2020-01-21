@@ -8,7 +8,7 @@
         <% if current_user.has_asset?(asset['currency']) %>
           <td>Added!</td>
         <% else %>
-          <td><%= button_to 'Add', "/myassets?symbol=#{asset['symbol']}", class: 'btn btn-success' %></td>
+          <td><%= link_to 'Add', "/myassets?symbol=#{asset['symbol']}", class: 'btn green', method: :post %></td>
         <% end %>
       </tr>
     <% end %>
