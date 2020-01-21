@@ -57,10 +57,30 @@ input[type=password], select {
 //   width: 60%;
 // }
 
+.holdings-value {
+  font-size: 40px;
+  text-align: right;
+
+}
+
+.portfolio-list {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 #show-price {
   font-size: 25px;
 }
 
 #add-form-btn {
   height: 25px;
+}
+
+#total-holdings {
+  font-size: 45px;
+}
+
+#percent-change {
+  text-align: right;
+  font-size: 20px;
 }
