@@ -1,0 +1,24 @@
+<div class='jumbotron'>
+
+</div>
+<h2>Trade History</h2>
+<table>
+  <thead>
+    <th></th>
+    <th>Date</th>
+    <th>Amount</th>
+    <th>Basis</th>
+    <th>Change Since Transaction</th>
+  </thead>
+  <tbody>
+    <% @user_asset.trades.each do |trade| %>
+      <tr>
+        <td><%= trade.transaction_type %></td>
+        <td><%= trade.created_at %></td>
+        <td><%= trade.amount %></td>
+        <td><%= trade.basis %></td>
+        <td><%= number_to_percentage trade.change_since_transaction(@attributes[:price].to_f) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
