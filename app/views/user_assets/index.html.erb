@@ -1,15 +1,22 @@
 <% if @user.assets.length == 0 %>
   <h1>You are not tracking any assets :(</h1>
 <% else %>
+<div class='jumbotron'>
+  <p>Total Value:</p>
+  <p id='total-holdings'><%= @user.user_assets.total_value %> USD<span id='percent-change'> <%= number_to_percentage(@user.user_assets.percent_change) %></span></p>
+</div>
+<section class='portfolio-list'>
   <% @user.user_assets.each do |user_asset| %>
     <div class="card">
       <div class="card-body">
         <h4 class="card-title"><%= user_asset.asset.name %></h4>
         <p>Current holdings: <%= user_asset.amount %></p>
+        <p class='holdings-value'><%= user_asset.value %> USD</p>
         <%= link_to 'Add Transaction', "/myassets/#{user_asset.id}/trade", class: 'card-link btn btn-success' %>
       </div>
     </div>
   <% end %>
+</section>
 <% end %>
 <button class='btn btn-primary' data-toggle="collapse" data-target="#add-form">Add Asset</button>
 <div id='add-form' class='collapse'>
