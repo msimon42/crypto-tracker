@@ -12,19 +12,19 @@
         <h4 class="card-title"><%= user_asset.asset.name %></h4>
         <p>Current holdings: <%= user_asset.amount %></p>
         <p class='holdings-value'><%= user_asset.value %> USD</p>
-        <%= link_to 'Add Transaction', "/myassets/#{user_asset.id}/trade", class: 'card-link btn btn-success' %>
+        <%= link_to 'Add Transaction', "/myassets/#{user_asset.id}/trade", class: 'card-link btn green' %>
       </div>
     </div>
   <% end %>
 </section>
 <% end %>
-<button class='btn btn-primary' data-toggle="collapse" data-target="#add-form">Add Asset</button>
+<button class='btn blue add-form-btn' data-toggle="collapse" data-target="#add-form">Add Asset</button>
 <div id='add-form' class='collapse'>
   <%= form_tag '/myassets/add', method: :get do %>
     <%= label_tag :query, 'Enter all or part of asset name here:' %>
     <div class='input-group mb-3'>
       <%= text_field_tag :query %>
-      <%= submit_tag 'Search', class: 'btn btn-success' %>
+      <%= submit_tag 'Search', class: 'btn green' %>
     </div>
   <% end %>
 </div>
