@@ -15,4 +15,8 @@ class UserAssetsController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def show
+    @user_asset = UserAsset.find(params[:id])
+    @attributes = @user_asset.asset.attributes
+  end
 end
