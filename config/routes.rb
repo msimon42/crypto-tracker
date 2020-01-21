@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/myassets', to: 'user_assets#index'
   get 'myassets/add', to: 'user_assets#new'
+  get '/myassets/:id', to: 'user_assets#show'
   post '/myassets', to: 'user_assets#create'
 
   get 'myassets/:id/trade', to: 'trades#new'
