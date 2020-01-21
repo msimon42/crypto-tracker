@@ -6,8 +6,7 @@
       <div class="card-body">
         <h4 class="card-title"><%= user_asset.asset.name %></h4>
         <p>Current holdings: <%= user_asset.amount %></p>
-        <%= link_to 'Buy', '/myassets/buy', class: 'card-link btn btn-success' %>
-        <%= link_to 'Sell', '/myassets/sell', class: 'card-link btn btn-danger' %>
+        <%= link_to 'Add Transaction', "/myassets/#{user_asset.id}/trade", class: 'card-link btn btn-success' %>
       </div>
     </div>
   <% end %>

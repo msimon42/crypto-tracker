@@ -1,0 +1,9 @@
+<h1>Add Transaction for <%= @user_asset.name %></h1>
+<%= form_tag "/myassets/#{@user_asset.id}/trade" do %>
+  <%= label_tag :amount %>
+  <%= text_field_tag :amount %>
+  <%= label_tag :price_per_coin %>
+  <%= text_field_tag :price_per_coin, @user_asset.price_per_coin %>
+  <%= select_tag :transaction_type, options_for_select(['Buy', 'Sell']) %>
+  <%= submit_tag 'Add Transaction' %>
+<% end %>
