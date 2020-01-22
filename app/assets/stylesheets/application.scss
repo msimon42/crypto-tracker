@@ -91,7 +91,7 @@ input[type=password], select {
 }
 
 .jumbotron {
-  background: #79BEA8;
+  background: #6395F2;
 }
 
 .btn {
@@ -169,7 +169,7 @@ input[type=password], select {
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 body {
 	margin: 0;
-	background: #d7fcef;
+	background: #DEE9FC;
 	font-family: 'Work Sans', sans-serif;
 	font-weight: 800;
 }
@@ -219,6 +219,15 @@ nav a {
   font-size: 14px;
 }
 
+nav .pagination li {
+  margin-left: 0px;
+  padding-top: 0px;
+}
+
+nav .pagination {
+
+}
+
 nav a:hover {
   color: #000;
 }
@@ -263,4 +272,12 @@ nav a:hover::before {
 #percent-change {
   text-align: right;
   font-size: 20px;
+}
+
+.pagination-nav {
+  text-align: center;
+}
+
+.pagination-nav nav {
+  display: inline-block;
 }
