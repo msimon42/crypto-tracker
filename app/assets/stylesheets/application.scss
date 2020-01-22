@@ -179,6 +179,10 @@ body {
 	margin: 0 auto;
 }
 
+.nav-color {
+  background: #091534;
+}
+
 header {
   background: #55d6aa;
 }
@@ -213,7 +217,7 @@ nav li {
 }
 
 nav a {
-  color: #444;
+  color: #678FFE;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
@@ -229,14 +233,14 @@ nav .pagination {
 }
 
 nav a:hover {
-  color: #000;
+  color: #DBE5FF;
 }
 
 nav a::before {
   content: '';
   display: block;
   height: 5px;
-  background-color: #444;
+  background-color: #678FFE;
 
   position: absolute;
   top: 0;
