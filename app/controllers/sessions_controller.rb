@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/assets'
+      redirect_to '/myassets'
       flash[:success] = "Welcome, #{user.username}!"
     else
       flash[:danger] = 'Invalid username or password'
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/assets'
+    redirect_to '/'
     flash[:success] = 'Goodbye!'
   end
 end
