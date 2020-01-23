@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Trade.destroy_all
+UserAsset.destroy_all
+User.destroy_all
 Asset.destroy_all
 assets = AssetApi.get_all
 assets.each do |asset|
