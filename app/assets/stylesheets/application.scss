@@ -198,6 +198,48 @@ header::after {
   padding: 10px 0;
 }
 
+.fa {
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 45px;
+  width: 45px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  text-decoration: none;
+}
+
+.fa-reddit::before {
+  color: #FF4500;
+  text-decoration: none;
+}
+
+.fa-reddit:hover {
+  color: #b33000;
+}
+
+.fa-github:hover {
+  color: #4d4d4d;
+}
+
+.fa-telegram:hover {
+  color: #005580;
+}
+
+.fa-github::before {
+  color: #000;
+  text-decoration: none;
+}
+
+.fa-telegram::before {
+  color: #0088cc;
+  text-decoration: none;
+}
+
 // nav {
 //   float: right;
 // }
@@ -253,6 +295,11 @@ nav a:hover::before {
   width: 100%;
 }
 
+a:hover {
+  text-decoration: none;
+  color: #091534;
+}
+
 
 #add-form {
   position: relative;
@@ -284,4 +331,8 @@ nav a:hover::before {
 
 .pagination-nav nav {
   display: inline-block;
+}
+
+.external-links {
+  text-align: center;
 }

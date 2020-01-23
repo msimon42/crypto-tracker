@@ -3,16 +3,14 @@
   <head>
     <title>AppName</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-sm nav-color">
-      <a class="navbar-brand" href="/">
-        <img src="bird.jpg" alt="logo" style="width:40px;">
-      </a>
+      <%= link_to 'HOME', '/', class: 'navbar-brand' %>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/assets">All Assets</a>
