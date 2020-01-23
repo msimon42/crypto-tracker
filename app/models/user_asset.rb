@@ -3,9 +3,6 @@ class UserAsset < ApplicationRecord
   belongs_to :asset
   has_many :trades
 
-  def value
-    amount * asset.attributes[:price].to_f
-  end
 
   def name
     asset.name.titleize
@@ -28,6 +25,12 @@ class UserAsset < ApplicationRecord
 
   def one_day_change
     asset.attributes[:price_changes][:one_d].to_f * amount
+  end
+
+  def n_change(attr)
+    val = value
+    old = val / ((attr.to_f / 100) + 1)
+    value - old
   end
 
   def value
