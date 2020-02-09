@@ -7,7 +7,7 @@ class Asset < ApplicationRecord
   end
 
   def attributes
-    data = AssetApi.get(self.symbol).first
+    data = AssetService.new.get(self.symbol).first
 
     result = {
       price: data['price'],
@@ -32,7 +32,7 @@ class Asset < ApplicationRecord
       end
     end
 
-    result    
+    result
   end
 
 end

@@ -1,7 +1,7 @@
 class UserAssetsController < ApplicationController
   def new
     symbols = Asset.find_symbols(params[:query])
-    @assets = AssetApi.get_multiple(symbols)
+    @assets = AssetService.new.get_multiple(symbols)
   end
 
   def create
