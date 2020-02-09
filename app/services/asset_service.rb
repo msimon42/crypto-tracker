@@ -37,12 +37,12 @@ class AssetService
 
     def conn
       Faraday.new(url: 'https://api.nomics.com') do |f|
-        f.adapter = Faraday.default_adapter
+        f.adapter Faraday.default_adapter
         f.params[:key] = ENV['NOMICS_KEY']
       end
     end
 
-    def json_parse
+    def json_parse(url, params=nil)
       response = conn.get(url, params=nil)
       JSON.parse(response.body)
     end
