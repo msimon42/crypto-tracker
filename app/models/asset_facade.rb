@@ -8,7 +8,8 @@ class AssetFacade
               :reddit_url,
               :github_url,
               :telegram_url,
-              :website_url
+              :website_url,
+              :ath_date
 
   def initialize(symbol)
     @data = AssetService.new.get(symbol).first
@@ -18,6 +19,7 @@ class AssetFacade
     @max_supply = @data['max_supply']
     @market_cap = @data['market_cap']
     @ath = @data['high']
+    @ath_date = @data['high_timestamp']
     @price_changes = PriceChange.new(@data)
     @reddit_url = @metadata['reddit_url']
     @github_url = @metadata['github_url']
