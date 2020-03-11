@@ -9,7 +9,8 @@ class AssetFacade
               :github_url,
               :telegram_url,
               :website_url,
-              :ath_date
+              :ath_date,
+              :rank
 
   def initialize(symbol)
     @data = AssetService.new.get(symbol).first
@@ -25,5 +26,6 @@ class AssetFacade
     @github_url = @metadata['github_url']
     @telegram_url = @metadata['telegram_url']
     @website_url = @metadata['website_url']
+    @rank = @data['rank']
   end
 end
