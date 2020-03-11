@@ -8,7 +8,7 @@ class PriceChange
               :one_y,
               :one_y_pct,
               :ytd,
-              :ytd_pct
+              :ytd_pct,
               :volume
 
   def initialize(data)
