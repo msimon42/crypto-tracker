@@ -34,22 +34,22 @@
           <th>ATH Date</th>
         </thead>
         <tbody>
-          <td><%= number_to_currency @asset['1d']['price_change'] %> (<%= number_to_percentage (@asset['1d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['7d']['price_change'] %> (<%= number_to_percentage (@asset['7d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['30d']['price_change'] %> (<%= number_to_percentage (@asset['30d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['365d']['price_change'] %> (<%= number_to_percentage (@asset['365d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['ytd']['price_change'] %> (<%= number_to_percentage (@asset['ytd']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_with_delimiter @asset['1d']['volume'] %></td>
-          <td><%= number_with_delimiter @asset['high'] %></td>
-          <td><%= @asset['high_timestamp'] %></td>
+          <td><%= number_to_currency @asset.price_changes.one_d %> (<%= number_to_percentage (@asset['1d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.seven_d %> (<%= number_to_percentage (@asset['7d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.thirty_d %> (<%= number_to_percentage (@asset['30d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.one_y %> (<%= number_to_percentage (@asset['365d']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.ytd %> (<%= number_to_percentage (@asset['ytd']['price_change_pct']).to_f * 100 %>)</td>
+          <td><%= number_with_delimiter @asset.price_changes.volume %></td>
+          <td><%= number_with_delimiter @asset.ath %></td>
+          <td><%= @asset.ath_date %></td>
         </tbody>
       </table>
     </div>
   </div>
 
   <div class='external-links'>
-    <%= link_to '', @asset_metadata['reddit_url'], class: 'fa fa-reddit' %>
-    <%= link_to '', @asset_metadata['github_url'], class: 'fa fa-github' %>
-    <%= link_to '', @asset_metadata['telegram_url'], class: 'fa fa-telegram' %>
-    <%= link_to '', @asset_metadata['website_url'], class: 'fa fa-globe' %>
+    <%= link_to '', @asset.reddit_url, class: 'fa fa-reddit' %>
+    <%= link_to '', @asset.github_url, class: 'fa fa-github' %>
+    <%= link_to '', @asset.telegram_url, class: 'fa fa-telegram' %>
+    <%= link_to '', @asset.website_url, class: 'fa fa-globe' %>
   </div>
