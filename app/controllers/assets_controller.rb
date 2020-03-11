@@ -5,7 +5,6 @@ class AssetsController < ApplicationController
   end
 
   def show
-    @asset = AssetService.new.get(params[:name]).first
-    @asset_metadata = AssetService.new.get_metadata(params[:name]).first
+    @asset = AssetService.new(params[:name])
   end
 end
