@@ -16,14 +16,14 @@
     <tbody>
         <% @paginatable_assets.each do |asset| %>
           <tr>
-            <td><img src="<%= asset['logo_url'] %>" class="align-self-start mr-3" style="width:25px"></td>
-            <td><%= asset['rank'] %></td>
-            <td><%= link_to asset['name'], "/assets/asset?name=#{asset['currency']}" %></td>
-            <td><%= asset['price'].to_f.round(5) %> USD</td>
-            <td><%= number_with_delimiter asset['circulating_supply'] %></td>
-            <td><%= number_with_delimiter asset['max_supply'] %></td>
-            <td><%= number_to_currency asset['market_cap'] %></td>
-            <td><%= number_to_currency asset['high'] %></td>
+            <td><img src="<%= asset.logo %>" class="align-self-start mr-3" style="width:25px"></td>
+            <td><%= asset.rank %></td>
+            <td><%= link_to asset.name, "/assets/asset?name=#{asset.symbol}" %></td>
+            <td><%= asset.price.to_f.round(5) %> USD</td>
+            <td><%= number_with_delimiter asset.circulating_supply %></td>
+            <td><%= number_with_delimiter asset.max_supply %></td>
+            <td><%= number_to_currency asset.market_cap %></td>
+            <td><%= number_to_currency asset.ath %></td>
           </tr>
         <% end %>
     </tbody>
