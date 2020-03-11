@@ -13,7 +13,8 @@ class AssetFacade
               :rank,
               :name,
               :logo,
-              :description
+              :description,
+              :whitepaper_url
 
   def initialize(symbol)
     @data = AssetService.new.get(symbol).first
