@@ -2,7 +2,7 @@ require 'net/http'
 
 class AssetService
   def get_all
-    json_parse('v1/currencies/ticker')
+    json_parse('v1/currencies/ticker', nil)
   end
 
   def get(asset)
@@ -29,8 +29,8 @@ class AssetService
       end
     end
 
-    def json_parse(url, params=nil)
-      response = conn.get(url, params=nil)
+    def json_parse(url, params)
+      response = conn.get(url, params)
       JSON.parse(response.body)
     end
 end

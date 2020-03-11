@@ -1,11 +1,10 @@
 class AssetsController < ApplicationController
   def index
-    assets = AssetService.new.get_all
+    assets = IndexFacade.generate(AssetService.new.get_all)
     @paginatable_assets = Kaminari.paginate_array(assets).page(params[:page]).per(100)
   end
 
   def show
-    @asset = AssetService.new.get(params[:name]).first
-    @asset_metadata = AssetService.new.get_metadata(params[:name]).first
+    @asset = AssetFacade.new(params[:name])
   end
 end

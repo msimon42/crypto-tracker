@@ -1,10 +1,10 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1>
-      <img src="<%= @asset['logo_url'] %>" style="width:150px"> <%= @asset['name'] %>
-      <span id='show-price'><%= number_to_currency @asset['price'] %></span>
+      <img src="<%= @asset.logo %>" style="width:150px"> <%= @asset.name %>
+      <span id='show-price'><%= number_to_currency @asset.price %></span>
       <span>
-        <% if @asset['1d']['price_change'].to_f >= 0 %>
+        <% if @asset.price_changes.one_d.to_f >= 0 %>
           <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Green_Arrow_Up_Darker.svg/240px-Green_Arrow_Up_Darker.svg.png'alt='green_arrow' style='width:15px'>
         <% else %>
           <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Red_Arrow_Down.svg/240px-Red_Arrow_Down.svg.png'alt='red_arrow'style='width:15px'>
@@ -14,8 +14,8 @@
     </h1>
     <button class='btn blue' data-toggle="collapse" data-target="#asset-info">Learn More</button>
     <div id='asset-info' class='collapse'>
-      <p><%= @asset_metadata['description'] %></p>
-      <%= link_to 'Read the Whitepaper', @asset_metadata['whitepaper_url'], class: 'btn blue' %>
+      <p><%= @asset.description %></p>
+      <%= link_to 'Read the Whitepaper', @asset.whitepaper_url, class: 'btn blue' %>
     </div>
   </div>
 </div>
@@ -34,22 +34,22 @@
           <th>ATH Date</th>
         </thead>
         <tbody>
-          <td><%= number_to_currency @asset['1d']['price_change'] %> (<%= number_to_percentage (@asset['1d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['7d']['price_change'] %> (<%= number_to_percentage (@asset['7d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['30d']['price_change'] %> (<%= number_to_percentage (@asset['30d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['365d']['price_change'] %> (<%= number_to_percentage (@asset['365d']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_to_currency @asset['ytd']['price_change'] %> (<%= number_to_percentage (@asset['ytd']['price_change_pct']).to_f * 100 %>)</td>
-          <td><%= number_with_delimiter @asset['1d']['volume'] %></td>
-          <td><%= number_with_delimiter @asset['high'] %></td>
-          <td><%= @asset['high_timestamp'] %></td>
+          <td><%= number_to_currency @asset.price_changes.one_d %> (<%= number_to_percentage (@asset.price_changes.one_d_pct).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.seven_d %> (<%= number_to_percentage (@asset.price_changes.seven_d_pct).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.thirty_d %> (<%= number_to_percentage (@asset.price_changes.thirty_d_pct).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.one_y %> (<%= number_to_percentage (@asset.price_changes.one_y_pct).to_f * 100 %>)</td>
+          <td><%= number_to_currency @asset.price_changes.ytd %> (<%= number_to_percentage (@asset.price_changes.ytd_pct).to_f * 100 %>)</td>
+          <td><%= number_with_delimiter @asset.price_changes.volume %></td>
+          <td><%= number_with_delimiter @asset.ath %></td>
+          <td><%= @asset.ath_date %></td>
         </tbody>
       </table>
     </div>
   </div>
 
   <div class='external-links'>
-    <%= link_to '', @asset_metadata['reddit_url'], class: 'fa fa-reddit' %>
-    <%= link_to '', @asset_metadata['github_url'], class: 'fa fa-github' %>
-    <%= link_to '', @asset_metadata['telegram_url'], class: 'fa fa-telegram' %>
-    <%= link_to '', @asset_metadata['website_url'], class: 'fa fa-globe' %>
+    <%= link_to '', @asset.reddit_url, class: 'fa fa-reddit' %>
+    <%= link_to '', @asset.github_url, class: 'fa fa-github' %>
+    <%= link_to '', @asset.telegram_url, class: 'fa fa-telegram' %>
+    <%= link_to '', @asset.website_url, class: 'fa fa-globe' %>
   </div>

@@ -17,6 +17,6 @@ class UserAssetsController < ApplicationController
 
   def show
     @user_asset = UserAsset.find(params[:id])
-    @attributes = @user_asset.asset.attributes
+    @attributes = AssetFacade.new(@user_asset.asset.symbol)
   end
 end
