@@ -9,7 +9,7 @@ Trade.destroy_all
 UserAsset.destroy_all
 User.destroy_all
 Asset.destroy_all
-assets = AssetApi.get_all
+assets = AssetService.new.get_all
 assets.each do |asset|
   Asset.create(symbol: asset['id'], name: asset['name'].upcase)
 end
