@@ -1,9 +1,9 @@
 <div class='jumbotron'>
   <h2>
-    <img src="<%= @attributes[:logo] %>" alt='asset_logo' style='width:75px'><%= @user_asset.asset.name %>
+    <img src="<%= @attributes.logo %>" alt='asset_logo' style='width:75px'><%= @user_asset.asset.name %>
   </h2>
   <p class='uashow-label'>Price:</p>
-  <p class='uashow-price-data'><%= @attributes[:price] %></p>
+  <p class='uashow-price-data'><%= @attributes.price %></p>
   <p class='uashow-label'>Current Value:</p>
   <p class='uashow-price-data'><%= @user_asset.value %></p>
 </div>
@@ -17,7 +17,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= (@user_asset.n_change(@attributes[:price_changes][:one_d])).round(5) %> USD</td>
+      <td><%= (@user_asset.n_change(@attributes.price_changes.one_d])).round(5) %> USD</td>
       <td><%= (@user_asset.n_change(@attributes[:price_changes][:seven_d])).round(5) %> USD</td>
       <td><%= (@user_asset.n_change(@attributes[:price_changes][:thirty_d])).round(5) %> USD</td>
       <td><%= (@user_asset.n_change(@attributes[:price_changes][:one_y])).round(5) %> USD</td>
