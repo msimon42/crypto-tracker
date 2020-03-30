@@ -5,4 +5,8 @@ class Asset < ApplicationRecord
   def self.find_symbols(query)
     where('name LIKE ?', "%#{query.upcase}%").pluck(:symbol)
   end
+
+  def attributes
+    AssetFacade.new(self.symbol)
+  end
 end
