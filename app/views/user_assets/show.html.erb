@@ -41,7 +41,7 @@
         <td><%= trade.created_at %></td>
         <td><%= trade.amount %></td>
         <td><%= trade.basis %></td>
-        <td><%= number_to_percentage trade.change_since_transaction(@attributes[:price].to_f) %></td>
+        <td><%= number_to_percentage trade.change_since_transaction(@attributes.price.to_f) %></td>
       </tr>
     <% end %>
   </tbody>
