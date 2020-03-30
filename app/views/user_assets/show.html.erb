@@ -20,7 +20,7 @@
       <td><%= (@user_asset.n_change(@attributes.price_changes.one_d)).round(5) %> USD</td>
       <td><%= (@user_asset.n_change(@attributes.price_changes.seven_d)).round(5) %> USD</td>
       <td><%= (@user_asset.n_change(@attributes.price_changes.thirty_d)).round(5) %> USD</td>
-      <td><%= (@user_asset.n_change(@attributes[:price_changes][:one_y])).round(5) %> USD</td>
+      <td><%= (@user_asset.n_change(@attributes.price_changes.one_y)).round(5) %> USD</td>
     </tr>
   </tbody>
 </table>
