@@ -24,7 +24,7 @@ class UserAsset < ApplicationRecord
   end
 
   def one_day_change
-    asset.attributes[:price_changes][:one_d].to_f * amount
+    asset.attributes.price_changes.one_d * amount
   end
 
   def n_change(attr)
