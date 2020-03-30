@@ -9,7 +9,7 @@ class UserAsset < ApplicationRecord
   end
 
   def price_per_coin
-    asset.attributes[:price].to_f
+    asset.attributes.price.to_f
   end
 
   def amount
